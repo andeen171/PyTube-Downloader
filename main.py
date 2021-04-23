@@ -2,7 +2,7 @@
 # import subprocess
 from pytube import YouTube
 import ffmpeg
-from pytube.exceptions import VideoUnavailable, LiveStreamError, RegexMatchError
+from pytube.exceptions import VideoUnavailable, RegexMatchError
 
 
 class PytubeDownloader:
@@ -20,9 +20,6 @@ class PytubeDownloader:
             self.pathaudio = ffmpeg.input(pathaudio)
         except VideoUnavailable:
             print('This video is unavailable')
-            exit()
-        except LiveStreamError:
-            print("It's a livestream URL!")
             exit()
         except RegexMatchError:
             print('Please enter a valid youtube video URL!')
